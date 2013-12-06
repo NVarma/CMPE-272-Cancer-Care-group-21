@@ -280,3 +280,117 @@ public class HomeController {
 		return jsonString;
 	}
 	
+	
+	
+	@RequestMapping(value = "/chart", method = RequestMethod.GET)
+	public String showCharts(Locale locale, Model model) 
+	{
+		
+		return "charts";
+	}
+	
+	@RequestMapping(value = "/stories", method = RequestMethod.GET)
+	public String getStories(Locale locale, Model model) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException 
+	{
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//dd/MM/yyyy
+	    Date now = new Date();
+	    String strDate = sdfDate.format(now);
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		// conn = DriveraManager.getConnection("jdbc:mysql://localhost:3306/testdatabase?user=testuser&password=testpassword");
+		String connectionUrl = "jdbc:mysql://localhost:3306/project272-demo";
+		String connectionUser = "root";
+		String connectionPassword = "";
+		
+		conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+		stmt = conn.createStatement();
+		String query = "select * from stories";
+		
+		return "stories";
+	}
+	
+	@RequestMapping(value = "/screening", method = RequestMethod.GET)
+	public String screening(Locale locale, Model model) 
+	{
+		
+		return "screening";
+	}
+	
+	@RequestMapping(value = "/stories", method = RequestMethod.POST)
+	public void postStories(@ModelAttribute("app")Stories SObjc, Model model) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException 
+	{
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//dd/MM/yyyy
+	    Date now = new Date();
+	    String strDate = sdfDate.format(now);
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		// conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdatabase?user=testuser&password=testpassword");
+		String connectionUrl = "jdbc:mysql://localhost:3306/project272-demo";
+		String connectionUser = "root";
+		String connectionPassword = "";
+		/*int idx = SObjc.getUrl().indexOf("v=");
+		String videoId = SObjc.getUrl().subSequence(idx+2, SObjc.getUrl().length()).toString();
+		conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+		stmt = conn.createStatement();
+		String query = "INSERT INTO stories(Url,VideoId,DateTime) values('"+SObjc.getUrl()+"','"+videoId+"','"+strDate+"')";
+					
+		System.out.println(query);
+		stmt.executeUpdate(query);*/
+		
+		//return "stories";
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "index";
+	}
+	
+		
+		@RequestMapping(value = "/forum", method = RequestMethod.GET)
+		public String reports(Locale locale, Model model)
+		{
+			return "forum";
+	} 
+		
+		@RequestMapping(value = "/causes", method = RequestMethod.GET)
+		public String causes(Locale locale, Model model)
+		{
+			return "causes";
+	} 
+		
+		@RequestMapping(value = "/TreatmentCenters", method = RequestMethod.GET)
+		public String TreatmentCenters(Locale locale, Model model)
+		{
+			return "TreatmentCenters";
+	}
+		
+		@RequestMapping(value = "/forum", method = RequestMethod.POST)
+		public void SubmitForum(@ModelAttribute("forum")Forum forum)
+		{
+			String filepath ="E:\\eclipse\\WorkSpace\\cancercare\\src\\main\\webapp\\WEB-INF\\spring\\Spring-Mail.xml";
+	    	ApplicationContext context = 
+	                new FileSystemXmlApplicationContext(filepath);
+	           	MailMail mm = (MailMail) context.getBean("mailMail");
+	           mm.sendMail(forum.getFullname(),
+	       		   forum.getDocName(),
+	       		   forum.getSubject(), 
+	       		   forum.getMsg());
+		}
+
+
+	
+}
