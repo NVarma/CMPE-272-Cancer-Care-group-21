@@ -143,22 +143,6 @@
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="http://localhost:8080/app" id="themes">Home<span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a tabindex="-1" href="http://bootswatch.com/default/">Default</a></li>
-                <li class="divider"></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/amelia/">Amelia</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/cerulean/">Cerulean</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/cosmo/">Cosmo</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/cyborg/">Cyborg</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/flatly/">Flatly</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/journal/">Journal</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/readable/">Readable</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/simplex/">Simplex</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/slate/">Slate</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/spacelab/">Spacelab</a></li>
-                <li><a tabindex="-1" href="./Bootswatch  United_files/Bootswatch  United.htm">United</a></li>
-                <li><a tabindex="-1" href="http://bootswatch.com/yeti/">Yeti</a></li>
-              </ul>
             </li>
            <li>
               <a href="/app/screening">Treatment Centers</a>
@@ -175,7 +159,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://builtwithbootstrap.com/" target="_blank">Donate</a></li>
+            <li><a href="https://donate.cancer.org/index" target="_blank">Donate</a></li>
           </ul>
         </div>
       </div>
