@@ -56,7 +56,7 @@ function al()
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://donate.cancer.org/index/" target="_blank">Donate</a></li>
+            <li><a href="https://donate.cancer.org/index" target="_blank">Donate</a></li>
           </ul>
         </div>
       </div>
